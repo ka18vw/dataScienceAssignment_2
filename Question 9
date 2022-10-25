@@ -1,0 +1,8 @@
+import pandas as pd
+import numpy as np
+
+crimeData = pd.read_csv('crime.csv')
+
+# correlation of the features with the ratio of violent crimes
+correlation = crimeData.corr()['ViolentCrimesPerPop']
+print(correlation)
