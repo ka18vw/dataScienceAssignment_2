@@ -1,0 +1,8 @@
+
+#input the blood sugar level which will be an integer value
+FastingBloodSugar = (int(input('Type your Blood Sugar level here: ')))
+
+if FastingBloodSugar <= 99:
+    print(FastingBloodSugar, ': Blood Sugar Level is normal.')
+else:
+    print('The Blood Sugar level is out of the normal range!')
