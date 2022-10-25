@@ -1,0 +1,26 @@
+studentData = pd.read_csv('student.csv')
+studytime = studentData['studytime']
+
+#the length of the number of students whose studytime is less than 3 and more or equal to 3, respectively. 
+lessthan_3 = len(studentData[studentData["studytime"]<3])
+morethan_3 = len(studentData[studentData["studytime"]>=3])
+
+#creating a dataframe to store the information above
+studytimeData = [lessthan_3,morethan_3]
+
+#data for grade achieved
+grade = studentData['grade']
+
+# Grouping two lists to make the Boxes in graph
+boxes = [studytimeData, grade]
+
+# Creating a Figure with Sizes
+fig = plt.figure(figsize=(7,7)) 
+
+# Creating axes instance
+ax = fig.add_axes([0, 0, 1, 1])
+
+# Creating boxplot
+studytimeboxplot = ax.boxplot(boxes)
+
+plt.show()
