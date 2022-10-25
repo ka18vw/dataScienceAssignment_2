@@ -1,0 +1,18 @@
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+
+crimedata = pd.read_csv('crime.csv')
+
+#violent crimes per pop under pctpopunderPov
+crime_list = np.array(crimedata['ViolentCrimesPerPop']).reshape(-1,1)
+
+#scaler command to use scale both the features
+scaler= StandardScaler()
+scaler.fit(crime_list)
+crime_scaled= scaler.transform(crime_list)
+
+plt.scatter(crimedata['PctPopUnderPov'],crime_scaled)
+plt.xlabel('Violent Crimes per Population')
+plt.ylabel('Pct Population under Poverty')
+plt.show()
+
