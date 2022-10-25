@@ -1,0 +1,13 @@
+file = open(file = 'sample-file.txt',
+           mode = 'r')
+lines = file.readlines()
+count = 0
+
+#for loop to find the number of lines that contain 'q' in the sample file
+for line in lines:
+    for word in line:
+        if word == 'q':
+            count = count + 1
+            break
+print('Total Number of lines:', count)
+    
