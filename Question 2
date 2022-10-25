@@ -1,0 +1,31 @@
+from random import sample
+
+for i in range(0,100):
+    a = sample(['1','2','3'],1)
+    b = sample(['1','2','3'],1)
+
+    file_a = open(file='file1.txt', mode='a')
+    file_b = open(file='file2.txt', mode='a')
+    
+    a = file_a.write('\n'+a[0])
+    b = file_b.write('\n'+b[0])
+    
+    file_a.close()
+    file_b.close()
+    
+    #opening the file back in read mode and then reading them line by line 
+    file_a = open(file='file1.txt', mode='r')
+    file_b = open(file='file2.txt', mode='r')
+    
+    read_a = file_a.read()
+    read_b = file_b.read()
+    
+    line_1 = [line.rstrip() for line in read_a]
+    line_2 = [line.rstrip() for line in read_b]
+    
+    #checking the condition that if line 1 and line 2 are equal then we are sucessful
+    if line_1[i] == line_2[i]:
+        print('Success!')
+        
+    file_a.close()
+    file_b.close()
