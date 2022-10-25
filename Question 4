@@ -1,0 +1,17 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv('student.csv')
+internetData = data[['internet', 'grade']]
+
+#grouped by internet usage [0,1] by the students and their average grade
+actualData = internetData.groupby('internet').mean().reset_index()
+print(actualData)
+
+#the bar plot of the two groups of student with their average grade
+plt.bar(actualData['internet'], actualData['grade'], color = 'pink')
+plt.title("Average grade of these 2 groups of students")
+plt.xlabel("Internet")
+plt.ylabel("Grade")
+plt.show()
+
