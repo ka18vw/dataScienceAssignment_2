@@ -1,0 +1,11 @@
+data = pd.read_csv('student.csv')
+studyTimeData=data[['studytime','grade']]
+
+#average grade of students with different levels of studytime
+realData=studyTimeData.groupby('studytime').mean().reset_index()
+
+plt.plot(realData['studytime'],realData['grade'])
+plt.xlabel('Study time')
+plt.ylabel('Average Grade')
+plt.title('Average grade according to different levesl of study time')
+plt.show()
