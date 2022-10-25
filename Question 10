@@ -1,0 +1,7 @@
+#function that defines if a list of testvalues is an outlier by comparing it with the list of values
+def isItAnOutlier(values, test_value):
+    #mean() and stdev() function built in pyhton to find if the test_value is greater or less 
+    if test_value < (mean(values) - 3*stdev(values)) or test_value > (mean(values) + 3*stdev(values)):
+        print("The test value is an outlier.")
+    else:
+        print("The test value is not an outlier.")
