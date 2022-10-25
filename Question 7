@@ -1,0 +1,19 @@
+import requests
+from bs4 import BeautifulSoup
+
+#the url is the link to Data Science in wikipedia
+url = 'https://en.wikipedia.org/wiki/Data_science'
+html =  requests.get(url).text
+soup = BeautifulSoup(html)
+
+#to find all the p_tags which will basically be 'learning'
+p_tags = soup.find_all('p')
+
+#for loop to find the number of paragraphs that contain the word ' learning'
+
+count = 0
+for p in p_tags:
+    p_text = p.text
+    if "learning" in p_text:
+        count += 1
+print(count)
